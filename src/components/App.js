@@ -3,7 +3,18 @@ import React, { Component } from 'react'
 class App extends Component {
     render() {
         return (
-            <h2 className="btn btn-danger">Reminder App</h2>
+            <div className="App">
+                <img src="" />
+                <div className="reminder-title">
+                    <h2>What Should U Do ?</h2>
+                </div>
+                <input className="form-control" type="text" 
+                placeholder="Entrer what U think ... ?" />
+                <input className="form-control" type="datetime-local" />
+                <button className="btn btn-primary btn-block">Add Reminder</button>
+                <button className="btn btn-danger btn-block">Clear Reminders</button>
+
+            </div>
         )
     }
 }
