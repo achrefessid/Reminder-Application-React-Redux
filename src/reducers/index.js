@@ -1,5 +1,14 @@
-const reducer = (state=[] , action) => {
-    return state
+import {ADD_REMINDER} from '../types'
+
+const reminders = (state=[] , action) => {
+    let reminders = [];
 }
 
-export default reducer
+if(action.type === ADD_REMINDER){
+    reminders = [...state , {text: action.text , date:action.data , id: Math.random()}]
+    console.log("from reducer",reminders)
+    return reminders
+}
+}
+
+export default reminders 
