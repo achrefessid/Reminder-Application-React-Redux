@@ -13,7 +13,6 @@ class App extends Component {
                 <input className="form-control" type="datetime-local" />
                 <button className="btn btn-primary btn-block">Add Reminder</button>
                 <button className="btn btn-danger btn-block">Clear Reminders</button>
-
             </div>
         )
     }
