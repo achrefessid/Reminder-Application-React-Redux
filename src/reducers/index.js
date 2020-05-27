@@ -2,7 +2,6 @@ import {ADD_REMINDER} from '../types'
 
 const reminders = (state=[] , action) => {
     let reminders = [];
-}
 
 if(action.type === ADD_REMINDER){
     reminders = [...state , {text: action.text , date:action.data , id: Math.random()}]

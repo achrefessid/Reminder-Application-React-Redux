@@ -4,9 +4,9 @@ import App from './components/App'
 import 'bootstrap/dist/css/bootstrap.css';
 import { createStore } from 'redux';
 import{Provider} from 'react-redux'
-import reducer from './reducers'
+import reminders from './reducers'
 
-const store = createStore(reducer)
+const store = createStore(reminders)
 
 ReactDOM.render(
   <Provider store={store}>
