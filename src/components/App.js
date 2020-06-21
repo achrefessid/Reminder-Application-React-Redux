@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { add_Reminder } from '../actions' 
+import { add_Reminder, remove_Reminder} from '../actions' 
 
 class App extends Component {
     state = {
@@ -18,6 +18,8 @@ class App extends Component {
                     <li key={reminder.id} className="list-group-item">
                         <div>{reminder.text}</div>
                         <div>{reminder.date}</div>
+                        <div className="remove btn btn-danger" onClick={() => this.props.remove_Reminder(reminder.id)}>X</div>
+
                         </li>
                     )
                  })
@@ -65,7 +67,10 @@ export default connect(state => {
     return {
         reminders: state
     }
-} , {add_Reminder})(App)
+} , { 
+    add_Reminder,
+    remove_Reminder
+})(App)
 
 
 
