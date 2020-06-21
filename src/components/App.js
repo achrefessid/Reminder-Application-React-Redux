@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { add_Reminder } from '../actions' 
-import reminders from '../reducers'
 
 class App extends Component {
     state = {
@@ -10,18 +9,18 @@ class App extends Component {
     }
 
     render_Reminders = () => {
-    const {reminders} = this.props;
-    return (
-        <ul className="list-group">
-            {
-                reminders.map(reminder => {
-                    return (
-                        <li key={reminder.id} className='list-group-item'>
-                            <div>{reminder.text}</div>
-                            <div>{reminder.date}</div>
+        const {reminders} = this.props;
+        return (
+        <ul className="list-group"> 
+        {
+            reminders.map(reminder => {
+                return (
+                    <li key={reminder.id} className="list-group-item">
+                        <div>{reminder.text}</div>
+                        <div>{reminder.date}</div>
                         </li>
                     )
-                })
+                 })
             }
         </ul>
         )
@@ -38,7 +37,7 @@ class App extends Component {
                     onChange={(e) => this.setState({text: e.target.value})} />
 
                 <input className="form-control" type="datetime-local" 
-                    onChange={(e) => this.setState({data: e.target.value})} />
+                    onChange={(e) => this.setState({date: e.target.value})} />
 
                 <button className="btn btn-primary btn-block"
                 onClick={ () => this.props.add_Reminder(this.state.text , this.state.date)}> 
