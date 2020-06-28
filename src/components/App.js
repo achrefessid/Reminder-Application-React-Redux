@@ -34,7 +34,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <img src={logo} />
+                <img src={logo} alt=""/>
                 <div className="reminder-title">
                     <h2>What Should U Do ?</h2>
                 </div>
