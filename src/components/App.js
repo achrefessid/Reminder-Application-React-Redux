@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { add_Reminder, remove_Reminder} from '../actions' 
+import { add_Reminder, remove_Reminder, clear_Reminder} from '../actions' 
 
 class App extends Component {
     state = {
@@ -35,17 +35,31 @@ class App extends Component {
                 <div className="reminder-title">
                     <h2>What Should U Do ?</h2>
                 </div>
-                <input className="form-control" type="text" placeholder="Entrer what U think ... ?" 
-                    onChange={(e) => this.setState({text: e.target.value})} />
+                <input 
+                className="form-control" 
+                type="text" 
+                value={this.state.text}
+                placeholder="Entrer what U think ... ?" 
+                onChange={(e) => this.setState({text: e.target.value})} />
 
-                <input className="form-control" type="datetime-local" 
-                    onChange={(e) => this.setState({date: e.target.value})} />
+                <input 
+                className="form-control" 
+                type="datetime-local" 
+                value={this.state.text}
+                onChange={(e) => this.setState({date: e.target.value})} />
 
                 <button className="btn btn-primary btn-block"
-                onClick={ () => this.props.add_Reminder(this.state.text , this.state.date)}> 
+                onClick={ () => {
+                    this.props.add_Reminder(this.state.text , this.state.date)
+                    this.setState({text: "" , date: ''}) //
+                    }
+                    }> 
                 Add Reminder</button>
                 {this.render_Reminders()}
-                <button className="btn btn-danger btn-block">Clear Reminders</button>
+                <button 
+                className="btn btn-danger btn-block"
+                onClick={ () => this.props.clear_Reminder()}
+                >Clear Reminders</button>
             </div>
         )
     }
@@ -69,7 +83,8 @@ export default connect(state => {
     }
 } , { 
     add_Reminder,
-    remove_Reminder
+    remove_Reminder,
+    clear_Reminder
 })(App)
 
 
